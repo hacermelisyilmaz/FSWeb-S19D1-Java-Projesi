@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @NoArgsConstructor
@@ -36,4 +37,9 @@ public class Actor {
             joinColumns = @JoinColumn(name = "actor_id"),
             inverseJoinColumns = @JoinColumn(name = "movie_id"))
     private List<Movie> movies;
+
+    public void addMovie(Movie movie) {
+        if (movies == null) movies = new ArrayList<>();
+        movies.add(movie);
+    }
 }
